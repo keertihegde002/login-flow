@@ -49,6 +49,8 @@ export default function CreateAccountPage() {
   return (
     <Formik
       initialValues={initialValues}
+      validateOnChange={false}
+validateOnBlur={true}
       validationSchema={
         validationSchemas[step]
       }
@@ -219,37 +221,53 @@ export default function CreateAccountPage() {
       <option>🇺🇸 +1</option>
     </CountrySelect>
 
-    <div
+    <input
+      placeholder="Enter mobile number"
+      value={values.phone}
+      onChange={(e) => {
+        const value =
+          e.target.value.replace(
+            /\D/g,
+            ""
+          );
+
+        if (value.length <= 10) {
+          setFieldValue(
+            "phone",
+            value
+          );
+        }
+      }}
       style={{
         flex: 1,
-      }}
-    >
-      <Input
-      label=""
-        placeholder="Enter mobile number"
-        value={values.phone}
-        onChange={(e) => {
-          const value =
-            e.target.value.replace(
-              /\D/g,
-              ""
-            );
-
-          if (value.length <= 10) {
-            setFieldValue(
-              "phone",
-              value
-            );
-          }
-        }}
-        error={
+        height: "54px",
+        borderRadius: "12px",
+        border: `1px solid ${
+          errors.phone &&
           touched.phone
-            ? errors.phone
-            : ""
-        }
-      />
-    </div>
+            ? "#EF4444"
+            : "#D0D5DD"
+        }`,
+        padding: "0 16px",
+        outline: "none",
+        fontSize: "15px",
+        boxSizing: "border-box",
+      }}
+    />
   </PhoneRow>
+
+  {errors.phone &&
+    touched.phone && (
+      <p
+        style={{
+          color: "#EF4444",
+          fontSize: "13px",
+          marginTop: "8px",
+        }}
+      >
+        {errors.phone}
+      </p>
+    )}
 </div>
       </>
     )}
@@ -291,14 +309,22 @@ export default function CreateAccountPage() {
 >
   Didn’t receive OTP?{" "}
   <span
-    style={{
-      color: "#0B5FFF",
-      cursor: "pointer",
-      fontWeight: 600,
-    }}
-  >
-    Resend
-  </span>
+  onClick={() =>
+    setFieldValue("otp", [
+      "",
+      "",
+      "",
+      "",
+    ])
+  }
+  style={{
+    color: "#0B5FFF",
+    cursor: "pointer",
+    fontWeight: 600,
+  }}
+>
+  Resend
+</span>
 </p>
         </div>
       </>
@@ -391,7 +417,7 @@ export default function CreateAccountPage() {
     marginTop: "-10px",
   }}
 >
-  Must be at least 8 characters
+  Must be at least 6 characters
 </p>
 
           <Input

@@ -30,20 +30,22 @@ export const validationSchemas = [
 }),
 
   Yup.object({
-    firstName: Yup.string()
-      .min(2)
-      .required(),
+   firstName: Yup.string()
+  .trim()
+  .min(2, "First name is required")
+  .required("First name is required"),
 
-    lastName: Yup.string()
-      .min(2)
-      .required(),
+lastName: Yup.string()
+  .trim()
+  .min(2, "Last name is required")
+  .required("Last name is required"),
   }),
 
   Yup.object({
     password: Yup.string()
       .min(
         6,
-        "Password must be at least 8 characters"
+        "Password must be at least 6 characters"
       )
       .required(),
 
