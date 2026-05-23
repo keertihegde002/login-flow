@@ -104,3 +104,103 @@ export const Bottom = styled.div`
   display: flex;
   justify-content: space-between;
 `;
+
+export const TopBar = styled.div`
+  width: 340px;
+  height: 4px;
+
+  border-radius: 999px;
+
+  background: ${({ theme }) =>
+    theme.colors.primary};
+
+  margin: 0 auto 40px auto;
+`;
+
+export const OTPWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const InputGroup = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+`;
+
+export const InputLabel = styled.label`
+  font-size: 14px;
+  color: ${({ theme }) =>
+    theme.colors.textSecondary};
+`;
+
+export const Select = styled.select`
+  width: 90px;
+  height: 50px;
+
+  border-radius: 12px;
+  border: 1px solid
+    ${({ theme }) => theme.colors.border};
+
+  padding: 0 12px;
+
+  outline: none;
+
+  transition: 0.2s ease;
+
+  &:focus {
+    border-color: ${({ theme }) =>
+      theme.colors.primary};
+  }
+`;
+
+export const Input = styled.input`
+  flex: 1;
+  height: 50px;
+
+  border-radius: 12px;
+  border: 1px solid
+    ${({ theme }) => theme.colors.border};
+
+  padding: 0 16px;
+
+  outline: none;
+
+  transition: 0.2s ease;
+
+  &:focus {
+    border-color: ${({ theme }) =>
+      theme.colors.primary};
+  }
+`;
+
+export const PhoneRow = styled.div`
+  display: flex;
+  gap: 14px;
+`;
+
+export const CountrySelect = styled.select`
+  width: 110px;
+  height: 52px;
+
+  border-radius: 12px;
+
+  border: 1px solid
+    ${({ theme }) => theme.colors.border};
+
+  padding: 0 12px;
+
+  outline: none;
+
+  background: white;
+
+  transition: 0.2s ease;
+
+  &:focus {
+    border-color: ${({ theme }) =>
+      theme.colors.primary};
+
+    box-shadow: 0px 0px 0px 4px
+      rgba(11, 95, 255, 0.1);
+  }
+`;
