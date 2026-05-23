@@ -52,9 +52,11 @@ export const Illustration = styled.div`
 
   border-radius: 24px;
 
-  background: white;
+  display: flex;
+align-items: center;
+justify-content: center;
 
-  border: 1px dashed #d1d5db;
+overflow: hidden;
 `;
 
 export const RightSection = styled.div`
@@ -181,8 +183,8 @@ export const PhoneRow = styled.div`
 
 export const CountrySelect = styled.select`
   width: 110px;
-  height: 52px;
-
+  height: 54px;
+margin-top: 1px;
   border-radius: 12px;
 
   border: 1px solid

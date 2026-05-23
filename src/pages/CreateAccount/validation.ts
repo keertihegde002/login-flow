@@ -42,7 +42,7 @@ export const validationSchemas = [
   Yup.object({
     password: Yup.string()
       .min(
-        8,
+        6,
         "Password must be at least 8 characters"
       )
       .required(),

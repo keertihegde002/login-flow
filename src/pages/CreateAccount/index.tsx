@@ -8,6 +8,7 @@ import OTPInput from "../../components/OTPInput";
 import OptionCard from "../../components/OptionCard";
 import ProgressBar from "../../components/ProgressBar";
 import SuccessModal from "../../components/SuccessModal";
+import welcome from "../../assets/welcome.png";
 
 import { validationSchemas } from "./validation";
 
@@ -58,7 +59,7 @@ export default function CreateAccountPage() {
         setSubmitting(true);
 
         await new Promise((res) =>
-          setTimeout(res, 1200)
+          setTimeout(res, 300)
         );
 
         setSubmitting(false);
@@ -99,7 +100,17 @@ export default function CreateAccountPage() {
                 </Subtitle>
               </HeadingWrapper>
 
-              <Illustration />
+              <Illustration>
+                 <img
+    src={welcome}
+    alt="illustration"
+    style={{
+      width: "100%",
+      height: "100%",
+      objectFit: "contain",
+    }}
+  />
+  </Illustration>
             </LeftSection>
 
             <RightSection>
@@ -191,7 +202,7 @@ export default function CreateAccountPage() {
               : ""
           }
         /> */}
-        <div>
+<div>
   <p
     style={{
       fontSize: "14px",
@@ -208,8 +219,13 @@ export default function CreateAccountPage() {
       <option>🇺🇸 +1</option>
     </CountrySelect>
 
-    <div style={{ flex: 1 }}>
+    <div
+      style={{
+        flex: 1,
+      }}
+    >
       <Input
+      label=""
         placeholder="Enter mobile number"
         value={values.phone}
         onChange={(e) => {

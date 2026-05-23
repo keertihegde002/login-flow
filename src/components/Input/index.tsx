@@ -63,11 +63,11 @@ export default function Input({
               )
             }
           >
-            {showPassword ? (
-              <EyeOff size={18} />
-            ) : (
-              <Eye size={18} />
-            )}
+{showPassword ? (
+  <Eye size={18} />
+) : (
+  <EyeOff size={18} />
+)}
           </IconWrapper>
         )}
       </InputWrapper>
